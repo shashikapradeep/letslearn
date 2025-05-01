@@ -1,0 +1,25 @@
+import React from 'react';
+import { ActivityIndicator, View, StyleSheet } from 'react-native';
+
+interface SpinnerLoaderProps {
+    size?: 'small' | 'large';
+    color?: string;
+}
+
+const SpinnerLoader: React.FC<SpinnerLoaderProps> = ({ size = 'large', color = '#0000ff'}) => {
+    return (
+        <View style={styles.container}>
+            <ActivityIndicator size={size} color={color} />
+        </View>
+    );
+};
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+});
+
+export default SpinnerLoader;
