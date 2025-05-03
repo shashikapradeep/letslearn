@@ -1,7 +1,6 @@
 // src/navigation/StackNavigator.tsx
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NavigationContainer } from '@react-navigation/native';
 import HomeScreen from '../screens/HomeScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 
@@ -10,12 +9,11 @@ export type RootStackParamList = {
   Profile: undefined;
 };
 
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const DefaultStack = createNativeStackNavigator<RootStackParamList>();
 
 export default function StackNavigator() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator
+      <DefaultStack.Navigator
         initialRouteName="Home"
         screenOptions={{
           headerShown: true,
@@ -28,17 +26,16 @@ export default function StackNavigator() {
           },
         }}
       >
-        <Stack.Screen
+        <DefaultStack.Screen
           name="Home"
           component={HomeScreen}
           options={{ title: 'Home' }}
         />
-        <Stack.Screen
+        <DefaultStack.Screen
           name="Profile"
           component={ProfileScreen}
           options={{ title: 'Profile' }}
         />
-      </Stack.Navigator>
-    </NavigationContainer>
+      </DefaultStack.Navigator>
   );
 }

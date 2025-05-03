@@ -10,10 +10,10 @@ import { useTheme } from '../theme/ThemeContext';
 
 const Dashboard = () => {
 const [text, setText] = useState('');
-const { theme, toggleTheme } = useTheme();
+const { theme } = useTheme();
 
 const handleButtonPress = () => {
-    toggleTheme();
+    
 };
 
 return (

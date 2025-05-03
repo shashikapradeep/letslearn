@@ -1,11 +1,11 @@
 import * as React from 'react';
-import StackNavigator from './src/navigation/StackNavigator';
 import {ThemeProvider} from './src/theme/ThemeContext';
+import BottomNavigator from './src/navigation/BottomNavigator';
 
 function App() {
   return (
     <ThemeProvider>
-      <StackNavigator />
+      <BottomNavigator/>
     </ThemeProvider>
   );
 }
