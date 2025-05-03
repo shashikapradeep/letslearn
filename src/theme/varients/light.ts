@@ -4,6 +4,6 @@ export default {
     text: '#000000',
     colors: {
         primary: '#007AFF',
-        secondary: '#5856D6'
-    }
+        secondary: '#5856D6',
+    },
 } as Theme;

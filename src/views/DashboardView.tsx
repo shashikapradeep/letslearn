@@ -6,7 +6,7 @@ TextInput,
 TouchableOpacity,
 StyleSheet,
 } from 'react-native';
-import { useTheme } from './../theme/ThemeContext';
+import { useTheme } from '../theme/ThemeContext';
 
 const Dashboard = () => {
 const [text, setText] = useState('');
@@ -17,7 +17,7 @@ const handleButtonPress = () => {
 };
 
 return (
-    <View style={{...styles.container, backgroundColor: theme.background, flex: 1}}>
+    <View style={{...styles.container, backgroundColor: theme?.background ?? '#fff'}}>
         <TextInput
             style={styles.input}
             value={text}
@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
 container: {
     padding: 20,
     backgroundColor: '#fff',
+    flex: 1,
 },
 input: {
     height: 40,

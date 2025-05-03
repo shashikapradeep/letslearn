@@ -6,24 +6,19 @@ interface ButtonProps extends TouchableOpacityProps {
     variant?: 'primary' | 'secondary';
 }
 
-const Button: React.FC<ButtonProps> = ({ 
-    title, 
-    variant = 'primary', 
-    style, 
-    ...props 
-}) => {
+const Button: React.FC<ButtonProps> = ({ title, variant = 'primary', style, ...props }) => {
     return (
         <TouchableOpacity
             style={[
                 styles.button,
                 variant === 'primary' ? styles.primaryButton : styles.secondaryButton,
-                style
+                style,
             ]}
             {...props}
         >
             <Text style={[
                 styles.text,
-                variant === 'primary' ? styles.primaryText : styles.secondaryText
+                variant === 'primary' ? styles.primaryText : styles.secondaryText,
             ]}>
                 {title}
             </Text>
