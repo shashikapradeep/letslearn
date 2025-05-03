@@ -1,8 +1,8 @@
-import Dashboard from '../views/DashboardView';
+import PracticeView from '../views/PracticeView';
 
 const HomeScreen = () => {
   return (
-    <Dashboard/>
+    <PracticeView/>
   );
 };
 export default HomeScreen;

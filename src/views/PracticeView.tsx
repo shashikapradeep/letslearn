@@ -7,19 +7,21 @@ TouchableOpacity,
 StyleSheet,
 } from 'react-native';
 import { useTheme } from '../theme/ThemeContext';
+import useChatGpt from '../hooks/useChatGpt';
 
-const Dashboard = () => {
+const Practice = () => {
 const [text, setText] = useState('');
 const { theme } = useTheme();
+const {fetchChatGptResponse, response } = useChatGpt();
 
 const handleButtonPress = () => {
-    
+    fetchChatGptResponse(text);
 };
 
 return (
     <View style={{...styles.container, backgroundColor: theme?.background ?? '#fff'}}>
         <TextInput
-            style={styles.input}
+            style={{color:theme.text, ...styles.input}}
             value={text}
             onChangeText={setText}
             placeholder="Enter text here"
@@ -28,8 +30,17 @@ return (
         <TouchableOpacity style={styles.button} onPress={handleButtonPress}>
             <Text style={styles.buttonText}>Submit</Text>
         </TouchableOpacity>
+
+        {response && (
+            <View style={styles.response}>
+                <Text style={{ color: theme.text }}>
+                    Response: {response}
+                </Text>
+            </View>
+        )}
     </View>
 );
+
 };
 
 const styles = StyleSheet.create({
@@ -37,6 +48,10 @@ container: {
     padding: 20,
     backgroundColor: '#fff',
     flex: 1,
+},
+response:{
+    marginTop: 20,
+    color: '#000',
 },
 input: {
     height: 40,
@@ -59,4 +74,4 @@ buttonText: {
 },
 });
 
-export default Dashboard;
+export default Practice;
