@@ -4,7 +4,7 @@ import Toast from 'react-native-toast-message';
 import env_configs from '../configs/env_configs';
 
 const axiosInstance = axios.create({
-    baseURL: env_configs.API_URL,
+    baseURL: env_configs.BACKEND.API_URL,
     timeout: 10000,
     headers: {
         'Content-Type': 'application/json',
